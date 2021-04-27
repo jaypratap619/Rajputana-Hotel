@@ -1,0 +1,125 @@
+/* Big tablet to 1200px (widths smaller than the 1140px row) */
+@media only screen and (max-width: 1200px) {
+    .row{ padding: 0 2%;}
+    .section-about-us img{
+        width: 70%;
+    }
+    .section-about-us img:first-of-type{ margin-top: 150px;}
+    
+    .section-rooms .row{ padding: 0 0;}
+    blockquote{
+        line-height: 120%;
+        font-size: 95%;
+        text-align: justify;
+    }
+    form{
+        width: 80%;
+        margin: 0 10%;
+    }
+}
+
+
+/* Small tablet to big tablet: from 768px to 1023px */
+@media only screen and (max-width: 1023px) {
+    body { font-size: 18px; }
+    section { padding: 60px 0; }
+    form{
+        width: 100%;
+        margin: 0 0%;
+    }
+    footer h3{
+        font-size: 95%;
+    }
+    
+    .box-f{padding: 0 0;}
+    
+    .box-f div:first-of-type{
+        margin-top: 10px;
+    }
+}
+
+
+
+
+/* Small phones to small tablets: from 481px to 767px */
+@media only screen and (max-width: 767px) {
+    body { font-size: 16px; }
+    section { padding: 30px 0; }
+    .row,
+    .header-text-box { padding: 0 4%; }
+    .col { 
+        width: 100%;
+        margin: 0 0 4% 0;
+    }
+    .header-text-box{
+        padding: 0;
+        max-width: 100%;
+        margin: 20px 10px 20px 0;
+        font-size: 85%;
+    }
+    
+    .main-nav{display: none;}
+    .mobile-nav-icon{
+        display: inline-block;
+    }
+    .main-nav{
+        float: left;
+        margin-top: 10px;
+        margin-left: 25px;
+    }
+    .main-nav li{
+        display: block;
+    }
+     
+    .main-nav li a{
+        display: block;
+        padding: 10px 0;
+        font-size: 100%;
+    } 
+    
+    .sticky .main-nav{ margin-top: 5px; }
+    .sticky .main-nav li a:link,
+    .sticky .main-nav li a:visited {padding: 10px 0;}
+    .sticky .mobile-nav-icon i{ color: #555;}
+    
+    .section-about-us img{ 
+        display: inline-block;
+        width: 50%;
+        height: 25vh;
+    }
+    .section-about-us img:first-child{
+        margin-top: 0;
+    }
+    blockquote{
+        margin-bottom: -20px;
+    }
+    footer .col{
+        -ms-flex-line-pack: center;
+        align-content: center;
+    }
+    footer h3{
+        margin-top: 10px;
+    }
+    .box-f{
+        margin-right: 0;
+    }
+}
+
+
+/* Small phones: from 0 to 480px */
+@media only screen and (max-width: 480px) {
+    section { padding: 25px 0; }
+    form {width: 100%; }
+    
+    .header-text-box{
+        padding: 0;
+        max-width: 100%;
+        margin-bottom: 80px;
+        font-size: 75%;
+        text-align: center;
+    }
+    .header-text-box a{
+        display: block;   
+    }
+}
+
