@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Rajputana Hotels</title>
+    <link href="../vendors/css/grid.css" type="text/css" rel="stylesheet" />
+    <link href="../vendors/css/animate.css" type="text/css" rel="stylesheet" />
+    <link
+      href="../vendors/css/normalize.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link
+      href="../vendors/css/ionicons.min.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link href="../resources/css/style.css" type="text/css" rel="stylesheet" />
+    <link
+      href="../resources/css/queries.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <section class="section-form">
+      <div class="row">
+        <h2 class="js--wp-5">We would love to have you</h2>
+      </div>
+      <div class="row">
+        <form method="post" action="#" class="contact-form">
+          <div class="row">
+            <div class="col span-1-of-3">
+              <label for="name">Name</label>
+            </div>
+            <div class="col span-2-of-3">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Your name"
+                required
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col span-1-of-3">
+              <label for="number">Contact number</label>
+            </div>
+            <div class="col span-2-of-3">
+              <input
+                type="tel"
+                name="number"
+                id="number"
+                placeholder="Your contact number"
+                required
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col span-1-of-3">
+              <label for="email">Email</label>
+            </div>
+            <div class="col span-2-of-3">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Your email"
+                required
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col span-1-of-3">
+              <label for="accommodation">Accommodation Type</label>
+            </div>
+            <div class="col span-2-of-3">
+              <select name="accommodation" id="accommodation">
+                <option value="Suite Room">Suite Room</option>
+                <option value="Family Room">Family Room</option>
+                <option value="Delux Room">Delux Room</option>
+                <option value="Classic Room">Classic Room</option>
+                <option value="Superior Room">Superior Room</option>
+                <option value="Luxry Room" selected>Luxry Room</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col span-1-of-3">
+              <label>Drop us a line</label>
+            </div>
+            <div class="col span-2-of-3">
+              <textarea name="message" placeholder="Your Message"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col span-1-of-3">
+              <label>Check In</label><br />
+              <input type="date" name="dateIN" required />
+            </div>
+            <div class="col span-1-of-3">
+              <label>Check Out</label><br />
+              <input type="date" name="dateOUT" required />
+            </div>
+            <div class="col span-1-of-3">
+              <br />
+              <input type="submit" value="Book Now" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script>
+    <script src="../vendors/js/jquery.waypoints.min.js"></script>
+    <script src="../resources/js/script.js"></script>
+  </body>
+</html>
