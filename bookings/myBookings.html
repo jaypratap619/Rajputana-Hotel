@@ -1,12 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Bookings</title>
+
+    <title>Rajputana Hotels</title>
+    <link href="../vendors/css/grid.css" type="text/css" rel="stylesheet" />
+    <link href="../vendors/css/animate.css" type="text/css" rel="stylesheet" />
+    <link
+      href="../vendors/css/normalize.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link
+      href="../vendors/css/ionicons.min.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link href="../resources/css/style.css" type="text/css" rel="stylesheet" />
+    <link
+      href="../resources/css/queries.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
-    Bookings
+    <header>
+      <nav>
+        <div class="row">
+          <nav>
+            <div class="row">
+              <a href="../index.html">
+                <img src="../resources/img/logo.png" class="logo" />
+              </a>
+              <img src="../resources/img/logo-white.png" class="logo-white" />
+              <ul class="main-nav js--main-nav">
+                <li><a href="../register/register.html">Sign In</a></li>
+              </ul>
+              <a class="mobile-nav-icon js--nav-icon"
+                ><i class="ion-navicon-round"></i
+              ></a>
+            </div>
+          </nav>
+          <section class="section-form">
+            <div class="row">
+              <h2 class="js--wp-5">Your Bookings</h2>
+            </div>
+            <div class="row">
+             
+            </div>
+          </section>
+        </div>
+      </nav>
+    </header>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script>
+    <script src="../vendors/js/jquery.waypoints.min.js"></script>
+    <script src="../resources/js/script.js"></script>
+
+    <script>
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      let checkIn = today.toISOString().substr(0, 10);
+      document.querySelector("#checkIn").value = checkIn;
+      let checkOut = tomorrow.toISOString().substr(0, 10);
+      document.querySelector("#checkOut").value = checkOut;
+    </script>
   </body>
 </html>

@@ -30,95 +30,161 @@
   </head>
 
   <body>
-    <section class="section-form">
-      <div class="row">
-        <h2 class="js--wp-5">We would love to have you</h2>
-      </div>
-      <div class="row">
-        <form method="post" action="#" class="contact-form">
-          <div class="row">
-            <div class="col span-1-of-3">
-              <label for="name">Name</label>
+    <header>
+      <nav>
+        <div class="row">
+          <nav>
+            <div class="row">
+              <a href="../index.html">
+                <img src="../resources/img/logo.png" class="logo" />
+              </a>
+              <img src="../resources/img/logo-white.png" class="logo-white" />
+              <ul class="main-nav js--main-nav">
+                <li><a href="myBookings.html">My Bookings</a></li>
+                <li><a href="../register/register.html">Sign In</a></li>
+              </ul>
+              <a class="mobile-nav-icon js--nav-icon"
+                ><i class="ion-navicon-round"></i
+              ></a>
             </div>
-            <div class="col span-2-of-3">
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Your name"
-                required
-              />
+          </nav>
+          <section class="section-form">
+            <div class="row">
+              <h2 class="js--wp-5">We would love to have you</h2>
             </div>
-          </div>
-          <div class="row">
-            <div class="col span-1-of-3">
-              <label for="number">Contact number</label>
-            </div>
-            <div class="col span-2-of-3">
-              <input
-                type="tel"
-                name="number"
-                id="number"
-                placeholder="Your contact number"
-                required
-              />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col span-1-of-3">
-              <label for="email">Email</label>
-            </div>
-            <div class="col span-2-of-3">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Your email"
-                required
-              />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col span-1-of-3">
-              <label for="accommodation">Accommodation Type</label>
-            </div>
-            <div class="col span-2-of-3">
-              <select name="accommodation" id="accommodation">
-                <option value="Suite Room">Suite Room</option>
-                <option value="Family Room">Family Room</option>
-                <option value="Delux Room">Delux Room</option>
-                <option value="Classic Room">Classic Room</option>
-                <option value="Superior Room">Superior Room</option>
-                <option value="Luxry Room" selected>Luxry Room</option>
-              </select>
-            </div>
-          </div>
+            <div class="row">
+              <form method="post" action="#" class="contact-form">
+                <div class="row">
+                  <div class="col span-1-of-3">
+                    <label for="name">Name</label>
+                  </div>
+                  <div class="col span-2-of-3">
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      placeholder="Your name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col span-1-of-3">
+                    <label for="number">Contact number</label>
+                  </div>
+                  <div class="col span-2-of-3">
+                    <input
+                      type="tel"
+                      name="number"
+                      id="number"
+                      placeholder="Your contact number"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col span-1-of-3">
+                    <label for="email">Email</label>
+                  </div>
+                  <div class="col span-2-of-3">
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Your email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col span-1-of-3">
+                    <label for="accommodation">Accommodation Type</label>
+                  </div>
+                  <div class="col span-2-of-3">
+                    <select name="accommodation" id="accommodation">
+                      <option value="Suite Room">Suite Room</option>
+                      <option value="Family Room">Family Room</option>
+                      <option value="Delux Room">Delux Room</option>
+                      <option value="Classic Room">Classic Room</option>
+                      <option value="Superior Room">Superior Room</option>
+                      <option value="Luxry Room" selected>Luxry Room</option>
+                    </select>
+                  </div>
+                </div>
 
-          <div class="row">
-            <div class="col span-1-of-3">
-              <label>Drop us a line</label>
+                <div class="row">
+                  <div class="col span-1-of-3">
+                    <label>Drop us a line</label>
+                  </div>
+                  <div class="col span-2-of-3">
+                    <textarea
+                      name="message"
+                      placeholder="Your Message"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col span-1-of-3">
+                    <label>Dates</label>
+                  </div>
+                  <div class="col span-2-of-3">
+                    <div class="col span-1-of-2">
+                      <label>Check In</label><br />
+                      <input type="date" name="dateIN" id="checkIn" required />
+                    </div>
+                    <div class="col span-1-of-2">
+                      <label>Check Out</label><br />
+                      <input
+                        type="date"
+                        name="dateOUT"
+                        id="checkOut"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <!-- <div class="col span-1-of-3">
+                    <div class="row">
+                      <div class="col span-1-of-2">
+                        <label>Total Amount</label><br />
+                      </div>
+                      <div class="col span-1-of-2">
+                        <br />
+                        <input
+                          type="submit"
+                          style="margin-top: 0; padding: 3px"
+                          value="Book Now"
+                        />
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </form>
+              <div class="summary">
+                <h3>Summary</h3>
+                <div class="row" style="margin-top: 10px">
+                  <div class="col span-1-of-3">Luxury Room</div>
+                  <div class="col span-1-of-3">2 Nights</div>
+                  <div class="col span-1-of-3">&#8377;200 / Night</div>
+                </div>
+                <div class="row">
+                  <div class="col span-1-of-2">
+                    Total Amount : <b>&#8377;400 </b>
+                  </div>
+                </div>
+                <div style="text-align: center">
+                  <input
+                    type="submit"
+                    style="margin-top: 8px; padding: 8px; font-size: 110%;"
+                    value="Book Now"
+                  />
+                </div>
+              </div>
             </div>
-            <div class="col span-2-of-3">
-              <textarea name="message" placeholder="Your Message"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col span-1-of-3">
-              <label>Check In</label><br />
-              <input type="date" name="dateIN" required />
-            </div>
-            <div class="col span-1-of-3">
-              <label>Check Out</label><br />
-              <input type="date" name="dateOUT" required />
-            </div>
-            <div class="col span-1-of-3">
-              <br />
-              <input type="submit" value="Book Now" />
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
+          </section>
+        </div>
+      </nav>
+    </header>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
@@ -126,5 +192,15 @@
     <script src="//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script>
     <script src="../vendors/js/jquery.waypoints.min.js"></script>
     <script src="../resources/js/script.js"></script>
+
+    <script>
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      let checkIn = today.toISOString().substr(0, 10);
+      document.querySelector("#checkIn").value = checkIn;
+      let checkOut = tomorrow.toISOString().substr(0, 10);
+      document.querySelector("#checkOut").value = checkOut;
+    </script>
   </body>
 </html>
