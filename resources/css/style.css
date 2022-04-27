@@ -151,6 +151,10 @@ header {
   background-attachment: fixed;
   position: relative;
 }
+
+.header-booking-form {
+  height: 150vh;
+}
 .header-text-box {
   width: 1140px;
   position: absolute;
@@ -461,6 +465,11 @@ Section Form
   margin-top: 15px;
   box-shadow: 2px 2px 12px black;
 }
+.section-form-summary {
+  background-color: white;
+  margin-top: 15px;
+  box-shadow: 2px 2px 12px black;
+}
 .section-form h2 {
   text-align: center;
 }
@@ -474,13 +483,12 @@ Section Form
 form,
 .summary {
   width: 60%;
-  margin: 0 20%;
+  margin: 40px auto;
 }
 
 .contact-form {
   padding-bottom: 15px;
-  border-bottom: 2px dotted grey;
-  margin-bottom: 10px;
+  margin-top: 25px;
 }
 
 input[type="text"],

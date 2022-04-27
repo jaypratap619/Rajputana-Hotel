@@ -27,10 +27,11 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
-    <header>
+    <header class="header-booking-form">
       <nav>
         <div class="row">
           <nav>
@@ -41,14 +42,18 @@
               <img src="../resources/img/logo-white.png" class="logo-white" />
               <ul class="main-nav js--main-nav">
                 <li><a href="myBookings.html">My Bookings</a></li>
-                <li><a href="../register/register.html">Sign In</a></li>
+                <li>
+                  <a id="home-signin-status" href="register/register.html"
+                    >Sign In</a
+                  >
+                </li>
               </ul>
               <a class="mobile-nav-icon js--nav-icon"
                 ><i class="ion-navicon-round"></i
               ></a>
             </div>
           </nav>
-          <section class="section-form">
+          <section class="section-form" id = "section-form">
             <div class="row">
               <h2 class="js--wp-5">We would love to have you</h2>
             </div>
@@ -62,7 +67,7 @@
                     <input
                       type="text"
                       name="name"
-                      id="name"
+                      id="booking-name"
                       placeholder="Your name"
                       required
                     />
@@ -76,7 +81,7 @@
                     <input
                       type="tel"
                       name="number"
-                      id="number"
+                      id="booking-number"
                       placeholder="Your contact number"
                       required
                     />
@@ -90,7 +95,7 @@
                     <input
                       type="email"
                       name="email"
-                      id="email"
+                      id="booking-email"
                       placeholder="Your email"
                       required
                     />
@@ -101,7 +106,7 @@
                     <label for="accommodation">Accommodation Type</label>
                   </div>
                   <div class="col span-2-of-3">
-                    <select name="accommodation" id="accommodation">
+                    <select name="accommodation" id="booking-accommodation">
                       <option value="Suite Room">Suite Room</option>
                       <option value="Family Room">Family Room</option>
                       <option value="Delux Room">Delux Room</option>
@@ -120,6 +125,7 @@
                     <textarea
                       name="message"
                       placeholder="Your Message"
+                      id = "booking-message"
                     ></textarea>
                   </div>
                 </div>
@@ -160,7 +166,15 @@
                   </div> -->
                 </div>
               </form>
-              <div class="summary">
+              <div style="text-align: right">
+                <input
+                  type="submit"
+                  style="margin-top: 8px; padding: 5px 20px; font-size: 120%"
+                  value="Next"
+                  onclick= "onNext()"
+                />
+              </div>
+              <!-- <div class="summary">
                 <h3>Summary</h3>
                 <div class="row" style="margin-top: 10px">
                   <div class="col span-1-of-3">Luxury Room</div>
@@ -175,8 +189,36 @@
                 <div style="text-align: center">
                   <input
                     type="submit"
-                    style="margin-top: 8px; padding: 8px; font-size: 110%;"
+                    style="margin-top: 8px; padding: 8px; font-size: 110%"
                     value="Book Now"
+                  />
+                </div>
+              </div> -->
+            </div>
+          </section>
+          <section style="display: none;" class="section-form-summary" id="section-form-summary">
+            <div class="row">
+              <h2 style="text-align:center">Please Confirm your Booking</h2>
+            </div>
+            <div class="row">
+              <div class="summary">
+                <h2>Summary</h3>
+                <div class="row" style="margin-top: 10px">
+                  <div style="text-align:center; font-size: 120%;" class="col span-1-of-3">Luxury Room</div>
+                  <div style="text-align:center; font-size: 120%;" class="col span-1-of-3">2 Nights</div>
+                  <div style="text-align:center; font-size: 120%;" class="col span-1-of-3">&#8377;200 / Night</div>
+                </div>
+                <div style="margin: 30px 0;" class="row">
+                  <div style="text-align:center; font-size: 150%;">
+                    Total Amount : <b>&#8377;400 </b>
+                  </div>
+                </div>
+                <div style="text-align: center">
+                  <input
+                    type="submit"
+                    style="margin-top: 8px; padding: 8px; font-size: 110%"
+                    value="Book Now"
+                    onClick = "onBook()"
                   />
                 </div>
               </div>
@@ -194,6 +236,7 @@
     <script src="../resources/js/script.js"></script>
 
     <script>
+      path = "http://localhost:5000/";
       const today = new Date();
       const tomorrow = new Date(today);
       tomorrow.setDate(tomorrow.getDate() + 1);
@@ -201,6 +244,72 @@
       document.querySelector("#checkIn").value = checkIn;
       let checkOut = tomorrow.toISOString().substr(0, 10);
       document.querySelector("#checkOut").value = checkOut;
+      
+      const onNext = () => {
+        const name = document.getElementById("booking-name").value;
+        const number = document.getElementById("booking-number").value;
+        const email = document.getElementById("booking-email").value;
+        const accommodation = document.getElementById("booking-accommodation").text;
+        const message = document.getElementById("booking-message").value;
+        const checkIn = document.getElementById("checkIn").value;
+        const checkOut = document.getElementById("checkOut").value;
+
+        // Put inside then block
+        let sectionFormSummary = document.getElementById("section-form-summary");
+        let sectionForm = document.getElementById("section-form");
+        sectionFormSummary.style.display = "block";
+        sectionForm.style.display = "none";
+
+        // axios
+        // .post(path + "app/booking", { 
+        //   name: name,
+        //   number: number,
+        //   email: email,
+        //   accommodation: accommodation,
+        //   message: message,
+        //   start: checkIn,
+        //   end: checkOut
+        // })
+        // .then(function (response) {
+        //   console.log(response);        
+        //   })
+        //   .catch(function (error) {
+        //     console.log(error);
+        //   });
+  };
+  const onBook = () => {
+        const name = document.getElementById("booking-name").value;
+        const number = document.getElementById("booking-number").value;
+        const email = document.getElementById("booking-email").value;
+        const accommodation = document.getElementById("booking-accommodation").text;
+        const message = document.getElementById("booking-message").value;
+        const checkIn = document.getElementById("checkIn").value;
+        const checkOut = document.getElementById("checkOut").value;
+
+        axios
+        .post(path + "app/booking", { 
+          name: name,
+          number: number,
+          email: email,
+          accommodation: accommodation,
+          message: message,
+          start: checkIn,
+          end: checkOut
+        },
+        {
+          headers: {
+            token: localStorage.getItem("token")
+          }
+        }
+        )
+        .then(function (response) {
+          console.log(response);        
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+  };
+
     </script>
   </body>
 </html>

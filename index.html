@@ -19,6 +19,7 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
@@ -33,7 +34,11 @@
             <li><a href="#Experience">experience</a></li>
             <li><a href="bookings/myBookings.html">My Bookings</a></li>
             <li><a href="#Contact">Contact Us</a></li>
-            <li><a href="/register/register.html">Sign In</a></li>
+            <li>
+              <a id="home-signin-status" href="register/register.html"
+                >Sign In</a
+              >
+            </li>
           </ul>
           <a class="mobile-nav-icon js--nav-icon"
             ><i class="ion-navicon-round"></i
@@ -43,7 +48,7 @@
       <div class="header-text-box">
         <h1>WELCOME TO HOTEL RAJPUTANA</h1>
         <h2>You don't just stay here,<br />You enjoy your stay</h2>
-        <a href="/bookings/bookingForm.html" class="btn">Book Now</a>
+        <a href="bookings/bookingForm.html" class="btn">Book Now</a>
         <a href="#" class="btn2 js--scroll-to-about-us">About Us</a>
       </div>
     </header>
@@ -316,7 +321,6 @@
         </div>
       </div>
     </footer>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
     <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>

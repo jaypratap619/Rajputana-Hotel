@@ -109,3 +109,17 @@ $(document).ready(function () {
     }
   });
 });
+const signInStatus = document.getElementById("home-signin-status");
+if (localStorage.getItem("token")) {
+  signInStatus.innerHTML = "Sign Out";
+  signInStatus.addEventListener("click", (e) => {
+    console.log("sign out");
+    localStorage.clear();
+  });
+} else {
+  signInStatus.innerHTML = "Sign In";
+  signInStatus.addEventListener("click", (e) => {
+    console.log("sign in procces");
+    window.location.href = "../../register/register";
+  });
+}

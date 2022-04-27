@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="register.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="register.css" />
     <title>Rajputana Hotels</title>
-</head>
-<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
     <section>
       <div class="container">
         <div class="user signinBx">
-          <div class="imgBx"><img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img1.jpg" alt="" /></div>
+          <div class="imgBx">
+            <img
+              src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img1.jpg"
+              alt=""
+            />
+          </div>
           <div class="formBx">
-            <form action="" onsubmit="return false;">
+            <form action="javascript:void(0);" onsubmit="signIn()">
               <h2>Sign In</h2>
-              <input type="text" name="" placeholder="Username" />
-              <input type="password" name="" placeholder="Password" />
+              <input
+                type="text"
+                id="user_name_si"
+                name=""
+                placeholder="Username"
+              />
+              <input
+                type="password"
+                id="password_si"
+                name=""
+                placeholder="Password"
+              />
               <input type="submit" name="" value="Login" />
               <p class="signup">
                 Don't have an account ?
@@ -27,12 +43,32 @@
         </div>
         <div class="user signupBx">
           <div class="formBx">
-            <form action="" onsubmit="return false;">
+            <form action="javascript:void(0);" onsubmit="signUp()">
               <h2>Create an account</h2>
-              <input type="text" name="" placeholder="Username" />
-              <input type="email" name="" placeholder="Email Address" />
-              <input type="password" name="" placeholder="Create Password" />
-              <input type="password" name="" placeholder="Confirm Password" />
+              <input
+                type="text"
+                id="user_name_su"
+                name=""
+                placeholder="Username"
+              />
+              <input
+                type="email"
+                id="email_su"
+                name=""
+                placeholder="Email Address"
+              />
+              <input
+                type="password"
+                id="password_su"
+                name=""
+                placeholder="Create Password"
+              />
+              <input
+                type="password"
+                id="confirm_password_su"
+                name=""
+                placeholder="Confirm Password"
+              />
               <input type="submit" name="" value="Sign Up" />
               <p class="signup">
                 Already have an account ?
@@ -40,7 +76,12 @@
               </p>
             </form>
           </div>
-          <div class="imgBx"><img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img2.jpg" alt="" /></div>
+          <div class="imgBx">
+            <img
+              src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img2.jpg"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </section>
