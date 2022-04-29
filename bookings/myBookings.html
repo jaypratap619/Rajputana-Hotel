@@ -23,10 +23,12 @@
       type="text/css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="myBooking.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
@@ -40,7 +42,11 @@
               </a>
               <img src="../resources/img/logo-white.png" class="logo-white" />
               <ul class="main-nav js--main-nav">
-                <li><a href="../register/register.html">Sign In</a></li>
+                <li>
+                  <a id="home-signin-status" href="../register/register.html"
+                    >Sign In</a
+                  >
+                </li>
               </ul>
               <a class="mobile-nav-icon js--nav-icon"
                 ><i class="ion-navicon-round"></i
@@ -52,7 +58,28 @@
               <h2 class="js--wp-5">Your Bookings</h2>
             </div>
             <div class="row">
-             
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Accommodation</th>
+                    <th scope="col">Check In</th>
+                    <th scope="col">Check Out</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody">
+                  <tr>
+                    <td>Jay Pratap Singh</td>
+                    <td>Luxry Room</td>
+                    <td>20/02/2022</td>
+                    <td>20/02/2022</td>
+                    <td>
+                      <button class="btn-delete">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </section>
         </div>
@@ -67,13 +94,75 @@
     <script src="../resources/js/script.js"></script>
 
     <script>
-      const today = new Date();
-      const tomorrow = new Date(today);
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      let checkIn = today.toISOString().substr(0, 10);
-      document.querySelector("#checkIn").value = checkIn;
-      let checkOut = tomorrow.toISOString().substr(0, 10);
-      document.querySelector("#checkOut").value = checkOut;
+      path = "http://localhost:5000/";
+
+      let bookings;
+
+      const update = () => {
+        axios
+          .get(path + "app/bookings", {
+            headers: {
+              token: localStorage.getItem("token"),
+            },
+          })
+          .then(function (response) {
+            console.log(response);
+            bookings = response.data.data;
+            console.log(bookings);
+
+            //Populate list
+            let tableBody = document.getElementById("tableBody");
+            let str = "";
+            const options = {
+              year: "numeric",
+              month: "numeric",
+              day: "numeric",
+            };
+            bookings.forEach((element, index) => {
+              str += `
+            <tr>
+              <td>${element.name}</td>
+              <td>${element.accommodation}</td>
+              <td>${new Date(element.start).toLocaleDateString(
+                "en-IN",
+                options
+              )}</td>
+              <td>${new Date(element.end).toLocaleDateString(
+                "en-IN",
+                options
+              )}</td>
+              <td>
+                <button onclick = "onCancel(${index})" class="btn-cancel">Cancel</button>
+              </td>
+            </tr>
+        `;
+            });
+            tableBody.innerHTML = str;
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      };
+      update();
+      const onCancel = (index) => {
+        let choice = confirm("Are You sure you want to cancel the booking ?")
+        if(choice){
+          const bookingId = bookings[index].booking_id;
+          axios
+            .delete(path + "app/booking/" + bookingId, {
+              headers: {
+                token: localStorage.getItem("token"),
+              },
+            })
+            .then(function (response) {
+              console.log(response);
+              update();
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        }
+      };
     </script>
   </body>
 </html>

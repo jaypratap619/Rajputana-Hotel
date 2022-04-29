@@ -1,3 +1,4 @@
+path = "http://localhost:5000/";
 $(document).ready(function () {
   /* For Sticky Nav */
   $(".js--section-about-us").waypoint(

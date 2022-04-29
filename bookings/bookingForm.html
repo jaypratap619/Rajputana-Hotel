@@ -106,7 +106,7 @@
                     <label for="accommodation">Accommodation Type</label>
                   </div>
                   <div class="col span-2-of-3">
-                    <select name="accommodation" id="booking-accommodation">
+                    <select onchange="onSelectRoom()" name="accommodation" id="booking-accommodation">
                       <option value="Suite Room">Suite Room</option>
                       <option value="Family Room">Family Room</option>
                       <option value="Delux Room">Delux Room</option>
@@ -136,7 +136,7 @@
                   <div class="col span-2-of-3">
                     <div class="col span-1-of-2">
                       <label>Check In</label><br />
-                      <input type="date" name="dateIN" id="checkIn" required />
+                      <input type="date" name="dateIN" id="checkIn" onchange="SetCheckIn()" required />
                     </div>
                     <div class="col span-1-of-2">
                       <label>Check Out</label><br />
@@ -144,6 +144,7 @@
                         type="date"
                         name="dateOUT"
                         id="checkOut"
+                        onchange="SetCheckOut()"
                         required
                       />
                     </div>
@@ -204,13 +205,13 @@
               <div class="summary">
                 <h2>Summary</h3>
                 <div class="row" style="margin-top: 10px">
-                  <div style="text-align:center; font-size: 120%;" class="col span-1-of-3">Luxury Room</div>
-                  <div style="text-align:center; font-size: 120%;" class="col span-1-of-3">2 Nights</div>
-                  <div style="text-align:center; font-size: 120%;" class="col span-1-of-3">&#8377;200 / Night</div>
+                  <div id = "selected-room" style="text-align:center; font-size: 120%;" class="col span-1-of-3">Luxury Room</div>
+                  <div id = "total-nights" style="text-align:center; font-size: 120%;" class="col span-1-of-3">2 Nights</div>
+                  <div id="price-per-night" style="text-align:center; font-size: 120%;" class="col span-1-of-3">&#8377;200 / Night</div>
                 </div>
                 <div style="margin: 30px 0;" class="row">
                   <div style="text-align:center; font-size: 150%;">
-                    Total Amount : <b>&#8377;400 </b>
+                    Total Amount : <b id ="total-amount">&#8377;400 </b>
                   </div>
                 </div>
                 <div style="text-align: center">
@@ -244,21 +245,59 @@
       document.querySelector("#checkIn").value = checkIn;
       let checkOut = tomorrow.toISOString().substr(0, 10);
       document.querySelector("#checkOut").value = checkOut;
+
+      const SetCheckIn = (e) => {
+        checkIn = document.getElementById("checkIn").value;
+      }
+      const SetCheckOut = (e) => {
+        checkOut = document.getElementById("checkOut").value;
+      }
+      let date1 = new Date(checkIn);
+      let date2 = new Date(checkOut);
+      let timeDiff = Math.abs(date2.getTime() - date1.getTime());
+      let numberOfNights = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+      console.log(numberOfNights + " nights"); 
       
+      const rooms = [
+        {name: "Suite Room", price : 1000},
+        {name: "Family Room", price : 1500},
+        {name: "Delux Room", price : 1800},
+        {name: "Classic Room", price : 2000},
+        {name: "Superior Room", price : 2300},
+        {name: "Luxry Room", price : 3000}
+      ]
+
+      let selectedRoomIndex = 5;  // Luxry
+      
+      document.getElementById("selected-room").innerHTML = rooms[selectedRoomIndex].name;
+      
+      const onSelectRoom = (e) => {
+        selectedRoomIndex = document.getElementById("booking-accommodation").selectedIndex;
+        document.getElementById("selected-room").innerHTML = rooms[selectedRoomIndex].name;
+        console.log(selectedRoomIndex);
+      }
       const onNext = () => {
         const name = document.getElementById("booking-name").value;
         const number = document.getElementById("booking-number").value;
         const email = document.getElementById("booking-email").value;
-        const accommodation = document.getElementById("booking-accommodation").text;
+        const accommodation = document.getElementById("booking-accommodation").value;
         const message = document.getElementById("booking-message").value;
         const checkIn = document.getElementById("checkIn").value;
         const checkOut = document.getElementById("checkOut").value;
 
-        // Put inside then block
         let sectionFormSummary = document.getElementById("section-form-summary");
         let sectionForm = document.getElementById("section-form");
         sectionFormSummary.style.display = "block";
         sectionForm.style.display = "none";
+        date1 = new Date(checkIn);
+        date2 = new Date(checkOut);
+        timeDiff = Math.abs(date2.getTime() - date1.getTime());
+        numberOfNights = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+        console.log(numberOfNights + " nights"); 
+        document.getElementById("selected-room").innerHTML = rooms[selectedRoomIndex].name;
+        document.getElementById("price-per-night").innerHTML = `&#8377;` + " " + rooms[selectedRoomIndex].price + " / Night";
+        document.getElementById("total-nights").innerHTML = numberOfNights + " " + "nights";
+        document.getElementById("total-amount").innerHTML = `&#8377;` + " " + rooms[selectedRoomIndex].price * numberOfNights;
 
         // axios
         // .post(path + "app/booking", { 
@@ -281,11 +320,11 @@
         const name = document.getElementById("booking-name").value;
         const number = document.getElementById("booking-number").value;
         const email = document.getElementById("booking-email").value;
-        const accommodation = document.getElementById("booking-accommodation").text;
+        const accommodation = document.getElementById("booking-accommodation").value;
         const message = document.getElementById("booking-message").value;
         const checkIn = document.getElementById("checkIn").value;
         const checkOut = document.getElementById("checkOut").value;
-
+       
         axios
         .post(path + "app/booking", { 
           name: name,
@@ -303,13 +342,14 @@
         }
         )
         .then(function (response) {
-          console.log(response);        
+          console.log(response);  
+          location.href = "../index.html"
+                
           })
           .catch(function (error) {
             console.log(error);
           });
   };
-
     </script>
   </body>
 </html>
