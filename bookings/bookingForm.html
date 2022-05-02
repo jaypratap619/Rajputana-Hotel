@@ -1,59 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Rajputana Hotels</title>
-    <link href="../vendors/css/grid.css" type="text/css" rel="stylesheet" />
-    <link href="../vendors/css/animate.css" type="text/css" rel="stylesheet" />
-    <link
-      href="../vendors/css/normalize.css"
-      type="text/css"
-      rel="stylesheet"
-    />
-    <link
-      href="../vendors/css/ionicons.min.css"
-      type="text/css"
-      rel="stylesheet"
-    />
-    <link href="../resources/css/style.css" type="text/css" rel="stylesheet" />
-    <link
-      href="../resources/css/queries.css"
-      type="text/css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <body>
-    <header class="header-booking-form">
-      <nav>
-        <div class="row">
-          <nav>
-            <div class="row">
-              <a href="../index.html">
-                <img src="../resources/img/logo.png" class="logo" />
-              </a>
-              <img src="../resources/img/logo-white.png" class="logo-white" />
-              <ul class="main-nav js--main-nav">
-                <li><a href="myBookings.html">My Bookings</a></li>
-                <li>
-                  <a id="home-signin-status" href="../register/register.js"
-                    >Sign In</a
-                  >
-                </li>
-              </ul>
-              <a class="mobile-nav-icon js--nav-icon"
-                ><i class="ion-navicon-round"></i
-              ></a>
-            </div>
-          </nav>
-          <section class="section-form" id = "section-form">
+  <title>Rajputana Hotels</title>
+  <link href="../vendors/css/grid.css" type="text/css" rel="stylesheet" />
+  <link href="../vendors/css/animate.css" type="text/css" rel="stylesheet" />
+  <link href="../vendors/css/normalize.css" type="text/css" rel="stylesheet" />
+  <link href="../vendors/css/ionicons.min.css" type="text/css" rel="stylesheet" />
+  <link href="../resources/css/style.css" type="text/css" rel="stylesheet" />
+  <link href="../resources/css/queries.css" type="text/css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <header class="header-booking-form">
+    <nav>
+      <div class="row">
+        <nav>
+          <div class="row">
+            <a href="../index.html">
+              <img src="../resources/img/logo.png" class="logo" />
+            </a>
+            <img src="../resources/img/logo-white.png" class="logo-white" />
+            <ul class="main-nav js--main-nav">
+              <li><a href="myBookings.html">My Bookings</a></li>
+              <li>
+                <a id="home-signin-status" href="../register/register.html">Sign In</a>
+              </li>
+            </ul>
+            <a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>
+          </div>
+        </nav>
+        <section style="background-color: white; margin-top: 5vh;" class="section-from" id="section-pls-signin">
+          <h3 style="text-align: center;">Please sign in to make bookings</h3>
+        </section>
+        <div id="booking-form">
+          <section class="section-form" id="section-form">
             <div class="row">
               <h2 class="js--wp-5">We would love to have you</h2>
             </div>
@@ -64,13 +51,7 @@
                     <label for="name">Name</label>
                   </div>
                   <div class="col span-2-of-3">
-                    <input
-                      type="text"
-                      name="name"
-                      id="booking-name"
-                      placeholder="Your name"
-                      required
-                    />
+                    <input type="text" name="name" id="booking-name" placeholder="Your name" required />
                   </div>
                 </div>
                 <div class="row">
@@ -78,13 +59,7 @@
                     <label for="number">Contact number</label>
                   </div>
                   <div class="col span-2-of-3">
-                    <input
-                      type="tel"
-                      name="number"
-                      id="booking-number"
-                      placeholder="Your contact number"
-                      required
-                    />
+                    <input type="tel" name="number" id="booking-number" placeholder="Your contact number" required />
                   </div>
                 </div>
                 <div class="row">
@@ -92,13 +67,7 @@
                     <label for="email">Email</label>
                   </div>
                   <div class="col span-2-of-3">
-                    <input
-                      type="email"
-                      name="email"
-                      id="booking-email"
-                      placeholder="Your email"
-                      required
-                    />
+                    <input type="email" name="email" id="booking-email" placeholder="Your email" required />
                   </div>
                 </div>
                 <div class="row">
@@ -116,17 +85,13 @@
                     </select>
                   </div>
                 </div>
-
+  
                 <div class="row">
                   <div class="col span-1-of-3">
                     <label>Drop us a line</label>
                   </div>
                   <div class="col span-2-of-3">
-                    <textarea
-                      name="message"
-                      placeholder="Your Message"
-                      id = "booking-message"
-                    ></textarea>
+                    <textarea name="message" placeholder="Your Message" id="booking-message"></textarea>
                   </div>
                 </div>
                 <div class="row">
@@ -140,28 +105,18 @@
                     </div>
                     <div class="col span-1-of-2">
                       <label>Check Out</label><br />
-                      <input
-                        type="date"
-                        name="dateOUT"
-                        id="checkOut"
-                        onchange="SetCheckOut()"
-                        required
-                      />
+                      <input type="date" name="dateOUT" id="checkOut" onchange="SetCheckOut()" required />
                     </div>
                   </div>
-
-                 
+  
+  
                 </div>
               </form>
               <div style="text-align: right">
-                <input
-                  type="submit"
-                  style="margin-top: 8px; padding: 5px 20px; font-size: 120%"
-                  value="Next"
-                  onclick= "onNext()"
-                />
+                <input type="submit" style="margin-top: 8px; padding: 5px 20px; font-size: 120%" value="Next"
+                  onclick="onNext()" />
               </div>
-              
+  
             </div>
           </section>
           <section style="display: none;" class="section-form-summary" id="section-form-summary">
@@ -171,40 +126,49 @@
             <div class="row">
               <div class="summary">
                 <h2>Summary</h3>
-                <div class="row" style="margin-top: 10px">
-                  <div id = "selected-room" style="text-align:center; font-size: 120%;" class="col span-1-of-3">Luxury Room</div>
-                  <div id = "total-nights" style="text-align:center; font-size: 120%;" class="col span-1-of-3">2 Nights</div>
-                  <div id="price-per-night" style="text-align:center; font-size: 120%;" class="col span-1-of-3">&#8377;200 / Night</div>
-                </div>
-                <div style="margin: 30px 0;" class="row">
-                  <div style="text-align:center; font-size: 150%;">
-                    Total Amount : <b id ="total-amount">&#8377;400 </b>
+                  <div class="row" style="margin-top: 10px">
+                    <div id="selected-room" style="text-align:center; font-size: 120%;" class="col span-1-of-3">Luxury
+                      Room</div>
+                    <div id="total-nights" style="text-align:center; font-size: 120%;" class="col span-1-of-3">2 Nights
+                    </div>
+                    <div id="price-per-night" style="text-align:center; font-size: 120%;" class="col span-1-of-3">
+                      &#8377;200 / Night</div>
                   </div>
-                </div>
-                <div style="text-align: center">
-                  <input
-                    type="submit"
-                    style="margin-top: 8px; padding: 8px; font-size: 110%"
-                    value="Book Now"
-                    onClick = "onBook()"
-                  />
-                </div>
+                  <div style="margin: 30px 0;" class="row">
+                    <div style="text-align:center; font-size: 150%;">
+                      Total Amount : <b id="total-amount">&#8377;400 </b>
+                    </div>
+                  </div>
+                  <div style="text-align: center">
+                    <input type="submit" style="margin-top: 8px; padding: 8px; font-size: 110%" value="Book Now"
+                      onClick="onBook()" />
+                  </div>
               </div>
             </div>
           </section>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
-    <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script>
-    <script src="../vendors/js/jquery.waypoints.min.js"></script>
-    <script src="../resources/js/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+  <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script>
+  <script src="../vendors/js/jquery.waypoints.min.js"></script>
+  <script src="../resources/js/script.js"></script>
 
-    <script>
-      path = "http://localhost:5000/";
+  <script>
+    path = "http://localhost:5000/";
+    let PlsSign = document.getElementById('section-pls-signin');
+    let bookingForm = document.getElementById("booking-form");
+    
+    if (localStorage.getItem("token")) {
+      PlsSign.style.display = "none"
+    }
+    else {
+      bookingForm.style.display = "none"
+    }
       const today = new Date();
       const tomorrow = new Date(today);
       tomorrow.setDate(tomorrow.getDate() + 1);
@@ -222,22 +186,22 @@
       let date1 = new Date(checkIn);
       let date2 = new Date(checkOut);
       let timeDiff = Math.abs(date2.getTime() - date1.getTime());
-      let numberOfNights = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-      console.log(numberOfNights + " nights"); 
-      
+      let numberOfNights = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      console.log(numberOfNights + " nights");
+
       const rooms = [
-        {name: "Suite Room", price : 1000},
-        {name: "Family Room", price : 1500},
-        {name: "Delux Room", price : 1800},
-        {name: "Classic Room", price : 2000},
-        {name: "Superior Room", price : 2300},
-        {name: "Luxry Room", price : 3000}
+        { name: "Suite Room", price: 1000 },
+        { name: "Family Room", price: 1500 },
+        { name: "Delux Room", price: 1800 },
+        { name: "Classic Room", price: 2000 },
+        { name: "Superior Room", price: 2300 },
+        { name: "Luxry Room", price: 3000 }
       ]
 
       let selectedRoomIndex = 5;  // Luxry
-      
+
       document.getElementById("selected-room").innerHTML = rooms[selectedRoomIndex].name;
-      
+
       const onSelectRoom = (e) => {
         selectedRoomIndex = document.getElementById("booking-accommodation").selectedIndex;
         document.getElementById("selected-room").innerHTML = rooms[selectedRoomIndex].name;
@@ -251,7 +215,6 @@
         const message = document.getElementById("booking-message").value;
         const checkIn = document.getElementById("checkIn").value;
         const checkOut = document.getElementById("checkOut").value;
-
         let sectionFormSummary = document.getElementById("section-form-summary");
         let sectionForm = document.getElementById("section-form");
         sectionFormSummary.style.display = "block";
@@ -259,31 +222,14 @@
         date1 = new Date(checkIn);
         date2 = new Date(checkOut);
         timeDiff = Math.abs(date2.getTime() - date1.getTime());
-        numberOfNights = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-        console.log(numberOfNights + " nights"); 
+        numberOfNights = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        console.log(numberOfNights + " nights");
         document.getElementById("selected-room").innerHTML = rooms[selectedRoomIndex].name;
         document.getElementById("price-per-night").innerHTML = `&#8377;` + " " + rooms[selectedRoomIndex].price + " / Night";
         document.getElementById("total-nights").innerHTML = numberOfNights + " " + "nights";
         document.getElementById("total-amount").innerHTML = `&#8377;` + " " + rooms[selectedRoomIndex].price * numberOfNights;
-
-        // axios
-        // .post(path + "app/booking", { 
-        //   name: name,
-        //   number: number,
-        //   email: email,
-        //   accommodation: accommodation,
-        //   message: message,
-        //   start: checkIn,
-        //   end: checkOut
-        // })
-        // .then(function (response) {
-        //   console.log(response);        
-        //   })
-        //   .catch(function (error) {
-        //     console.log(error);
-        //   });
-  };
-  const onBook = () => {
+      };
+      const onBook = () => {
         const name = document.getElementById("booking-name").value;
         const number = document.getElementById("booking-number").value;
         const email = document.getElementById("booking-email").value;
@@ -291,32 +237,35 @@
         const message = document.getElementById("booking-message").value;
         const checkIn = document.getElementById("checkIn").value;
         const checkOut = document.getElementById("checkOut").value;
-       
+
         axios
-        .post(path + "app/booking", { 
-          name: name,
-          number: number,
-          email: email,
-          accommodation: accommodation,
-          message: message,
-          start: checkIn,
-          end: checkOut
-        },
-        {
-          headers: {
-            token: localStorage.getItem("token")
-          }
-        }
-        )
-        .then(function (response) {
-          console.log(response);  
-          location.href = "../index.html"
-                
+          .post(path + "app/booking", {
+            name: name,
+            number: number,
+            email: email,
+            accommodation: accommodation,
+            message: message,
+            start: checkIn,
+            end: checkOut
+          },
+            {
+              headers: {
+                token: localStorage.getItem("token")
+              }
+            }
+          )
+          .then(function (response) {
+            console.log(response);
+            location.href = "../index.html"
+
           })
           .catch(function (error) {
             console.log(error);
           });
-  };
-    </script>
-  </body>
+      }
+    
+   
+  </script>
+</body>
+
 </html>
